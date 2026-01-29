@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 export async function createProject(formData: FormData) {
-    const supabase = createClient()
+    const supabase = await createClient()
 
     const name = formData.get('name') as string
     const description = formData.get('description') as string

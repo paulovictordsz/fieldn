@@ -9,7 +9,7 @@ import { redirect } from "next/navigation";
 import { NewProjectModal } from "@/components/features/NewProjectModal";
 
 export default async function Dashboard() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) {

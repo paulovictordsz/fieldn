@@ -15,7 +15,7 @@ export default async function ProjectPage({
     params: { id: string };
     searchParams: { tab?: string };
 }) {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { id } = params;
     const activeTab = searchParams.tab || 'overview';
 

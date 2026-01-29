@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { notFound } from "next/navigation";
 
 export default async function FilePage({ params }: { params: { id: string, fileId: string } }) {
-    const supabase = createClient();
+    const supabase = await createClient();
     const { id: projectId, fileId } = params;
 
     // 1. Fetch File Record
