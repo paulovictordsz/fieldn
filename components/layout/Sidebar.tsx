@@ -25,7 +25,7 @@ export function Sidebar() {
     ];
 
     return (
-        <aside className="fixed inset-y-0 left-0 z-50 flex w-[var(--sidebar-width)] flex-col border-r border-border-light bg-bg-sidebar">
+        <aside className="fixed inset-y-0 left-0 z-50 flex w-[var(--sidebar-width)] flex-col border-r border-border-light bg-bg-sidebar text-text-primary">
             {/* Logo */}
             <div className="flex h-14 items-center px-4 border-b border-border-light/50">
                 <div className="flex items-center gap-2">

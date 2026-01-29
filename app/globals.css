@@ -1,99 +1,65 @@
-@import "tailwindcss";
-
-@theme {
-  /* Colors */
-  --color-bg-app: var(--bg-app);
-  --color-bg-sidebar: var(--bg-sidebar);
-  --color-bg-content: var(--bg-content);
-  --color-bg-hover: var(--bg-hover);
-  --color-bg-active: var(--bg-active);
-  --color-bg-input: var(--bg-input);
-
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-tertiary: var(--text-tertiary);
-  --color-text-link: var(--text-link);
-
-  --color-border-light: var(--border-light);
-  --color-border-medium: var(--border-medium);
-
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-light: var(--accent-light);
-
-  --color-status-draft-bg: var(--status-draft-bg);
-  --color-status-draft-text: var(--status-draft-text);
-  --color-status-final-bg: var(--status-final-bg);
-  --color-status-final-text: var(--status-final-text);
-  --color-status-success-bg: var(--status-success-bg);
-  --color-status-success-text: var(--status-success-text);
-
-  /* Spacing */
-  --spacing-sidebar: var(--sidebar-width);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
+  /* DARK MODE DEFAULT PALETTE */
   /* Backgrounds */
-  --bg-app: #F8FAFC;
-  --bg-sidebar: #FFFFFF;
-  --bg-content: #FFFFFF;
-  --bg-hover: #F1F5F9;
-  --bg-active: #EFF6FF;
-  --bg-input: #FFFFFF;
+  --bg-app: #0f1115;
+  /* Very dark grey/blue, almost black */
+  --bg-sidebar: #16181d;
+  /* Slightly lighter */
+  --bg-content: #1e2026;
+  /* Cards/Containers */
+  --bg-hover: #2a2d35;
+  /* Hover states */
 
-  /* Textos */
-  --text-primary: #0F172A;
-  --text-secondary: #64748B;
-  --text-tertiary: #94A3B8;
-  --text-link: #2563EB;
+  /* Borders */
+  --border-light: #2d313a;
+  --border-medium: #3f444e;
 
-  /* Bordas */
-  --border-light: #E2E8F0;
-  --border-medium: #CBD5E1;
+  /* Typography (Light text on Dark bg) */
+  --text-primary: #f1f5f9;
+  /* Slate 100 */
+  --text-secondary: #94a3b8;
+  /* Slate 400 */
+  --text-tertiary: #64748b;
+  /* Slate 500 */
 
-  /* Accent */
-  --accent: #2563EB;
-  --accent-hover: #1D4ED8;
-  --accent-light: #EFF6FF;
-
-  /* Status */
-  --status-draft-bg: #DBEAFE;
-  --status-draft-text: #1E40AF;
-  --status-final-bg: #FEE2E2;
-  --status-final-text: #DC2626;
-  --status-success-bg: #D1FAE5;
-  --status-success-text: #059669;
+  /* Accent - PURPLE */
+  --accent: #8b5cf6;
+  /* Violet 500 */
+  --accent-hover: #7c3aed;
+  /* Violet 600 */
+  --accent-light: #4c1d95;
+  /* Violet 900 (for backgrounds) */
 
   /* Dimensions */
-  --sidebar-width: 220px;
+  --sidebar-width: 240px;
+  --header-height: 64px;
 }
 
-body {
-  background-color: var(--bg-app);
-  color: var(--text-primary);
-  font-family: var(--font-inter), sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    @apply bg-bg-app text-text-primary;
+  }
 }
 
-/* Utilities */
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Custom Scrollbar for Dark Mode */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-/* Custom Scrollbar for Sidebar */
-.scrollbar-thin::-webkit-scrollbar {
-  width: 4px;
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
 }
-.scrollbar-thin::-webkit-scrollbar-track {
-  background: transparent;
-}
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: var(--border-light);
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
   border-radius: 4px;
 }
-.scrollbar-thin:hover::-webkit-scrollbar-thumb {
+
+::-webkit-scrollbar-thumb:hover {
   background: var(--text-tertiary);
 }
