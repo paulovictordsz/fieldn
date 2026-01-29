@@ -1,14 +1,15 @@
+import { createBrowserClient } from '@supabase/ssr'
 
-import { createClient } from '@supabase/supabase-js'
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-if (!supabaseUrl || !supabaseAnonKey) {
-    console.warn('Missing Supabase environment variables')
+export function createClient() {
+    return createBrowserClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
 }
 
-export const supabase = createClient(
-    supabaseUrl || '',
-    supabaseAnonKey || ''
+// Keep the old export for backward compatibility if needed, 
+// but prefer using the function to create a new client instance
+export const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 )
