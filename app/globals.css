@@ -41,7 +41,8 @@
 
 @layer base {
   body {
-    @apply bg-bg-app text-text-primary;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
   }
 }
 
